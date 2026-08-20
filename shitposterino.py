@@ -1,5 +1,7 @@
 import discord
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -12,7 +14,7 @@ async def on_ready():
 @client.event
 async def on_message(message):
     print(f"[{message.author}] {message.content}")
-    await messge.channel.send("Hello World")
+    await message.channel.send("Hello World")
 
 client.run(os.environ["DISCORD_TOKEN"])
 
